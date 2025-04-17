@@ -1,0 +1,182 @@
+/* Custom styles for the weather app, minimal since Tailwind handles most styling */
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.app-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.app-header h1 {
+  color: #3b82f6;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.25rem;
+}
+
+.error {
+  color: #ef4444;
+}
+
+/* Weather container for layout */
+.weather-container {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+}
+
+.weather-info {
+  margin-top: 1rem;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e5e7eb; /* Light gray for light mode */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6b7280; /* Gray for light mode */
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4b5563; /* Darker gray on hover */
+}
+
+/* Dark mode scrollbar */
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-track {
+    background: #1e293b; /* Slate for dark mode */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #64748b; /* Lighter slate for dark mode */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8; /* Lighter on hover */
+  }
+}
+
+/* Weather card styling */
+.weather-card {
+  @apply bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md mb-6;
+}
+
+/* Weather background classes */
+.weather-sunny {
+  @apply bg-gradient-to-br from-yellow-100 to-blue-100 dark:from-yellow-900/30 dark:to-blue-900/30;
+}
+
+.weather-cloudy {
+  @apply bg-gradient-to-br from-gray-100 to-blue-100 dark:from-gray-900/30 dark:to-blue-900/30;
+}
+
+.weather-rainy {
+  @apply bg-gradient-to-br from-blue-100 to-gray-200 dark:from-blue-900/30 dark:to-gray-800/30;
+}
+
+.weather-stormy {
+  @apply bg-gradient-to-br from-gray-300 to-blue-200 dark:from-gray-800/30 dark:to-blue-800/30;
+}
+
+.weather-snowy {
+  @apply bg-gradient-to-br from-blue-50 to-gray-100 dark:from-blue-900/20 dark:to-gray-900/20;
+}
+
+.weather-default {
+  @apply bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-900/20 dark:to-indigo-900/20;
+}
+
+/* Forecast styling */
+.forecast-days {
+  @apply grid grid-cols-5 gap-2;
+}
+
+.forecast-day {
+  @apply bg-white dark:bg-slate-800 p-3 rounded-lg text-center shadow-sm;
+}
+
+.card-hover {
+  @apply transition-transform hover:scale-105;
+}
+
+/* Detail cards */
+.detail-card {
+  @apply bg-gray-100 dark:bg-slate-700 p-3 rounded-lg flex flex-col items-center text-center;
+}
+
+.detail-icon {
+  @apply mb-2 text-gray-500 dark:text-gray-400;
+}
+
+.detail-value {
+  @apply text-xl font-semibold;
+}
+
+.detail-label {
+  @apply text-sm text-gray-500 dark:text-gray-400;
+}
+
+/* Search bar */
+.search-bar {
+  @apply relative;
+}
+
+.search-input {
+  @apply w-full p-3 pl-10 rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-slate-800;
+}
+
+.search-icon {
+  @apply absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400;
+}
+
+.search-button {
+  @apply absolute right-3 top-1/2 transform -translate-y-1/2;
+}
+
+/* Favorite button */
+.favorite-button {
+  @apply text-2xl transition-colors;
+}
+
+.favorite-button.active {
+  @apply text-yellow-500;
+}
+
+/* Animations */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Dark mode toggle */
